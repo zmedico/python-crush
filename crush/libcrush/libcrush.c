@@ -936,7 +936,7 @@ static int parse_choose_args_bucket_weight_set(LibCrush *self, struct crush_choo
 {
   PyObject *python_bucket_weight_set = PyDict_GetItemString(bucket, "weight_set");
   if (python_bucket_weight_set == NULL) {
-    choose_args->weight_set_size = 0;
+    choose_args->weight_set_positions = 0;
     return 1;
   }
 
@@ -947,7 +947,7 @@ static int parse_choose_args_bucket_weight_set(LibCrush *self, struct crush_choo
     return 0;
   }
 
-  choose_args->weight_set_size = PyList_Size(python_bucket_weight_set);
+  choose_args->weight_set_positions = PyList_Size(python_bucket_weight_set);
 
   Py_ssize_t pos;
   for (pos = 0; pos < PyList_Size(python_bucket_weight_set); pos++) {

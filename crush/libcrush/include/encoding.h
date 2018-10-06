@@ -1009,7 +1009,6 @@ decode(std::array<T, N>& v, bufferlist::iterator& p)
     decode(e, p);
 }
 
-
 /*
  * guards
  */
